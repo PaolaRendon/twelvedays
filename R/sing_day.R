@@ -20,6 +20,8 @@ sing_day <- function(dataset, line, phrase_col){
   phrases <- dataset %>% pull({{phrase_col}})
 
   phrases <- head(phrases, line)
+  
+  phrases <- str_trim(phrases)
 
   day_phrases <- map(phrases, invisible)
 
@@ -28,8 +30,6 @@ sing_day <- function(dataset, line, phrase_col){
   day_phrases <- glue_collapse(day_phrases, sep = ",\n")
 
   day_phrases <- str_replace_all(day_phrases, " ,", ",")
-  
-  day_phrases <- str_trim(day_phrases)
 
   glue("On the {line} day of Christmas, my true love sent to me,
   {day_phrases}.")
