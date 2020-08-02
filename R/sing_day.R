@@ -28,12 +28,10 @@ sing_day <- function(dataset, line, phrase_col){
   day_phrases <- glue_collapse(day_phrases, sep = ",\n")
 
   day_phrases <- str_replace_all(day_phrases, " ,", ",")
+  
+  day_phrases <- str_trim(day_phrases)
 
-  day_phrases <- glue("On the {line} day of Christmas, my true love sent to me,
+  glue("On the {line} day of Christmas, my true love sent to me,
   {day_phrases}.")
-  
-  day_phrases <- str_replace_all(day_phrases, " \\.", "\\.")
-  
-  return(day_phrases)
 
 }
