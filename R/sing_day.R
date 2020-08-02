@@ -26,7 +26,9 @@ sing_day <- function(dataset, line, phrase_col){
   day_phrases <- map(phrases, invisible)
 
   line <- ordinal(line)
-
+  
+  day_phrases <- rev(day_phrases)
+  
   day_phrases <- glue_collapse(day_phrases, sep = ",\n")
 
   day_phrases <- str_replace_all(day_phrases, " ,", ",")
