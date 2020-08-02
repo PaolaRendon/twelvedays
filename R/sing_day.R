@@ -26,6 +26,8 @@ sing_day <- function(dataset, line, phrase_col){
   line <- ordinal(line)
 
   day_phrases <- glue_collapse(day_phrases, sep = ",\n")
+  
+  day_phrases <- str_replace_all(day_phrases, " ,", ",")
 
   glue("On the {line} day of Christmas, my true love sent to me,
   {day_phrases}")
